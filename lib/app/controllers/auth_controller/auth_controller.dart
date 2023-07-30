@@ -2,13 +2,12 @@ import 'package:get/state_manager.dart';
 import 'package:http/http.dart' as http;
 
 class AuthController extends GetxController {
-  RxString username = ''.obs;
-  RxString password = ''.obs;
+  static RxString username = ''.obs;
+  static RxString password = ''.obs;
+  static void onUsernameChanged(String value) => username.value = value;
+  static void onPasswordChanged(String value) => password.value = value;
 
-  void onUsernameChanged(String value) => username.value = value;
-  void onPasswordChanged(String value) => password.value = value;
-
-  Future<void> login(String username, String password) async {
+  static Future<void> login(String username, String password) async {
     try {
       final response = await http.Client().get(
         Uri.parse(
@@ -19,7 +18,7 @@ class AuthController extends GetxController {
     }
   }
 
-  Future<void> signUp(
+  static Future<void> signUp(
       String username, password, firstName, lastName, email) async {
     try {
       final response = await http.Client()

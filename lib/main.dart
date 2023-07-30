@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get/get_instance/src/bindings_interface.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:pet_store/app/controllers/auth_controller/auth_controller.dart';
+import 'package:pet_store/app/controllers/pet_controller/pet_controller.dart';
 import 'package:pet_store/app/routers.dart';
 import 'package:pet_store/app/screens/login/login.dart';
 
@@ -28,5 +29,6 @@ class InitialBindings extends Bindings {
   @override
   void dependencies() {
     Get.put(AuthController());
+    Get.put(PetController());
   }
 }
